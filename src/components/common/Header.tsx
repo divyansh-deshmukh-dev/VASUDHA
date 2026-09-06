@@ -58,13 +58,13 @@ export const Header: React.FC<HeaderProps> = ({
       {/* 3.5px Continuous Micro-gradient Indian Tricolor Ribbon */}
       <div className="tricolor-ribbon" />
 
-      <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 gap-4">
+      <div className="w-full max-w-[1700px] mx-auto px-3 sm:px-6">
+        <div className="flex items-center justify-between h-16 gap-2 sm:gap-4">
           {/* Brand & Project Breadcrumb */}
-          <div className="flex items-center gap-3 shrink-0 min-w-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
             <button 
               onClick={onOpenLanding}
-              className="flex items-center gap-2.5 text-left group focus:outline-none shrink-0"
+              className="flex items-center gap-2 sm:gap-2.5 text-left group focus:outline-none shrink-0"
               title="Return to VASUDHA Overview"
             >
               {/* Official VASUDHA Logo */}
@@ -72,7 +72,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <img 
                   src="/logo.png" 
                   alt="VASUDHA Logo" 
-                  className="w-9 h-9 rounded-lg object-contain bg-[#fbf9f4] border border-slate-200 shadow-sm"
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg object-contain bg-[#fbf9f4] border border-slate-200 shadow-sm"
                 />
                 <span className="absolute -bottom-1 -right-1 flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -82,7 +82,7 @@ export const Header: React.FC<HeaderProps> = ({
               
               <div className="shrink-0">
                 <div className="flex items-center gap-2">
-                  <span className="text-lg font-black tracking-tight text-slate-900 font-mono">
+                  <span className="text-base sm:text-lg font-black tracking-tight text-slate-900 font-mono">
                     VASUDHA
                   </span>
                 </div>
@@ -103,23 +103,23 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Right Action Bar */}
-          <div className="flex items-center gap-2.5 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             {/* Live RBAC Stakeholder Workspace Switcher */}
             <div className="relative">
               <button
                 onClick={() => setRoleDropdownOpen(!roleDropdownOpen)}
-                className="flex items-center gap-2 px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200/80 border border-slate-300 text-slate-800 transition-all shadow-subtle shrink-0 whitespace-nowrap"
+                className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200/80 border border-slate-300 text-slate-800 transition-all shadow-subtle shrink-0 whitespace-nowrap"
                 aria-expanded={roleDropdownOpen}
               >
-                <ActiveIcon className="w-4 h-4 text-blue-700 shrink-0" />
+                <ActiveIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-700 shrink-0" />
                 <span className="hidden lg:inline text-slate-500 font-normal">Active Workspace:</span>
-                <span className="font-bold text-slate-900">{activeRoleMeta.label}</span>
+                <span className="font-bold text-slate-900 max-w-[95px] sm:max-w-none truncate">{activeRoleMeta.label}</span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-500 ml-0.5 shrink-0" />
               </button>
 
               {roleDropdownOpen && (
                 <div 
-                  className="absolute right-0 mt-2 w-80 rounded-xl bg-white border border-slate-200 shadow-enterprise py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+                  className="absolute right-0 mt-2 w-72 sm:w-80 max-w-[calc(100vw-1.5rem)] rounded-xl bg-white border border-slate-200 shadow-enterprise py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
                   onMouseLeave={() => setRoleDropdownOpen(false)}
                 >
                   <div className="px-3.5 py-2 border-b border-slate-100">
@@ -180,7 +180,7 @@ export const Header: React.FC<HeaderProps> = ({
 
               {notificationsOpen && (
                 <div 
-                  className="absolute right-0 mt-2 w-80 sm:w-96 rounded-xl bg-white border border-slate-200 shadow-enterprise p-4 z-50"
+                  className="absolute right-0 mt-2 w-72 sm:w-96 max-w-[calc(100vw-1.5rem)] rounded-xl bg-white border border-slate-200 shadow-enterprise p-4 z-50"
                   onMouseLeave={() => setNotificationsOpen(false)}
                 >
                   <div className="flex items-center justify-between pb-2 border-b border-slate-100">

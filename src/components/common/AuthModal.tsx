@@ -116,64 +116,66 @@ export const AuthModal: React.FC<AuthModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/70 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden max-h-[92vh] flex flex-col">
         {/* Tricolor Ribbon */}
-        <div className="tricolor-ribbon" />
+        <div className="tricolor-ribbon shrink-0" />
 
         {/* Modal Header */}
-        <div className="p-6 pb-4 border-b border-slate-100 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="p-4 sm:p-6 pb-3 sm:pb-4 border-b border-slate-100 flex items-center justify-between shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             <img 
               src="/logo.png" 
               alt="VASUDHA Logo" 
-              className="w-10 h-10 rounded-lg object-contain bg-[#fbf9f4] border border-slate-200 shadow-sm" 
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg object-contain bg-[#fbf9f4] border border-slate-200 shadow-sm shrink-0" 
             />
             <div>
-              <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span>VASUDHA Portal Access</span>
               </h2>
-              <p className="text-xs text-slate-500">Government of India Single Sign-On Gateway</p>
+              <p className="text-[11px] sm:text-xs text-slate-500">Government of India Single Sign-On Gateway</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+            className="p-1.5 sm:p-2 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors shrink-0"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Tab Selector */}
-        <div className="flex border-b border-slate-200 bg-slate-50">
+        <div className="flex border-b border-slate-200 bg-slate-50 shrink-0">
           <button
             type="button"
             onClick={() => setActiveTab('officer')}
-            className={`flex-1 py-3 px-4 text-xs font-bold text-center border-b-2 transition-all flex items-center justify-center gap-2 ${
+            className={`flex-1 py-2.5 sm:py-3 px-2 sm:px-4 text-xs font-bold text-center border-b-2 transition-all flex items-center justify-center gap-1.5 sm:gap-2 ${
               activeTab === 'officer'
                 ? 'border-blue-600 text-blue-700 bg-white shadow-sm'
                 : 'border-transparent text-slate-500 hover:text-slate-700'
             }`}
           >
-            <Lock className="w-3.5 h-3.5" />
-            Official Parichay SSO / e-Pramaan
+            <Lock className="w-3.5 h-3.5 shrink-0" />
+            <span className="hidden sm:inline">Official Parichay SSO / e-Pramaan</span>
+            <span className="sm:hidden">Official SSO</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('citizen')}
-            className={`flex-1 py-3 px-4 text-xs font-bold text-center border-b-2 transition-all flex items-center justify-center gap-2 ${
+            className={`flex-1 py-2.5 sm:py-3 px-2 sm:px-4 text-xs font-bold text-center border-b-2 transition-all flex items-center justify-center gap-1.5 sm:gap-2 ${
               activeTab === 'citizen'
                 ? 'border-emerald-600 text-emerald-700 bg-white shadow-sm'
                 : 'border-transparent text-slate-500 hover:text-slate-700'
             }`}
           >
-            <User className="w-3.5 h-3.5" />
-            Citizen & Landowner (Aadhaar/OTP)
+            <User className="w-3.5 h-3.5 shrink-0" />
+            <span className="hidden sm:inline">Citizen & Landowner (Aadhaar/OTP)</span>
+            <span className="sm:hidden">Citizen (OTP)</span>
           </button>
         </div>
 
         {/* Tab Body */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6 overflow-y-auto">
           {activeTab === 'officer' ? (
             <form onSubmit={handleOfficerLogin} className="space-y-4">
               {/* Role Picker */}

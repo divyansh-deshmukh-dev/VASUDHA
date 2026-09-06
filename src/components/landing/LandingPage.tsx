@@ -154,18 +154,18 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
       {/* Navigation Bar */}
       <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <img 
               src="/logo.png" 
               alt="VASUDHA Logo" 
-              className="w-10 h-10 rounded-xl object-contain bg-[#fbf9f4] border border-slate-200 shadow-sm" 
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-contain bg-[#fbf9f4] border border-slate-200 shadow-sm shrink-0" 
             />
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="text-xl font-black tracking-tight text-slate-900 font-mono">VASUDHA</span>
+                <span className="text-lg sm:text-xl font-black tracking-tight text-slate-900 font-mono">VASUDHA</span>
               </div>
-              <p className="text-[10px] font-medium text-slate-500">
+              <p className="text-[10px] font-medium text-slate-500 truncate hidden sm:block">
                 Department of Land Resources (DoLR), Govt of India
               </p>
             </div>
@@ -178,18 +178,20 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             <a href="#comparison" className="hover:text-blue-700 transition-colors">National Platform Matrix</a>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <button
               onClick={() => onOpenAuth('citizen')}
-              className="px-3.5 py-2 text-xs font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors border border-slate-300"
+              className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors border border-slate-300 whitespace-nowrap shrink-0"
             >
-              Citizen Parcel Lookup
+              <span className="hidden sm:inline">Citizen Parcel Lookup</span>
+              <span className="sm:hidden">Citizen</span>
             </button>
             <button
               onClick={() => onOpenAuth('officer')}
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-white bg-blue-700 hover:bg-blue-800 rounded-lg shadow-sm transition-all hover:shadow-md"
+              className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold text-white bg-blue-700 hover:bg-blue-800 rounded-lg shadow-sm transition-all hover:shadow-md whitespace-nowrap shrink-0"
             >
-              <span>Login to Portal</span>
+              <span>Login</span>
+              <span className="hidden sm:inline">to Portal</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -197,24 +199,25 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-12 pb-16 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-slate-100 border-b border-slate-200">
+      <section className="relative pt-8 sm:pt-12 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-slate-100 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Eyebrow badge */}
-          <div className="flex justify-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-semibold shadow-subtle mb-6">
-              <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
-              <span>Ministry of Rural Development • Department of Land Resources (DoLR)</span>
+          <div className="flex justify-center px-2">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-[10px] sm:text-xs font-semibold shadow-subtle mb-4 sm:mb-6 text-center max-w-full">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-500 animate-ping shrink-0"></span>
+              <span className="hidden sm:inline">Ministry of Rural Development • Department of Land Resources (DoLR)</span>
+              <span className="sm:hidden">Ministry of Rural Development • DoLR</span>
             </div>
           </div>
 
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight px-1">
               The National Workflow Engine for{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-800 to-blue-900">
                 Digital Land Acquisition
               </span>
             </h1>
-            <p className="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+            <p className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed font-normal px-2 max-w-3xl mx-auto">
               Eliminate the ₹4.2 Lakh Crore national infrastructure freeze. Automated legal state machine under{' '}
               <span className="font-semibold text-slate-900">RFCTLARR Act 2013</span>, instant{' '}
               <span className="font-semibold text-slate-900">PM Gati Shakti GIS</span> pre-screening, and{' '}
@@ -222,23 +225,23 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             </p>
 
             {/* Quick Action CTAs (Require Authentication First) */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 w-full max-w-md sm:max-w-none mx-auto px-2">
               <button
                 onClick={() => onOpenAuth('officer', 'collector')}
-                className="px-6 py-3 rounded-xl bg-blue-700 hover:bg-blue-800 text-white text-sm font-bold shadow-enterprise flex items-center gap-2 hover:gap-3 transition-all"
+                className="w-full sm:w-auto px-5 sm:px-6 py-3 rounded-xl bg-blue-700 hover:bg-blue-800 text-white text-xs sm:text-sm font-bold shadow-enterprise flex items-center justify-center gap-2 hover:gap-3 transition-all text-center"
               >
                 <span>Launch CALA Legal Workbench</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 shrink-0" />
               </button>
               <button
                 onClick={() => onOpenAuth('officer', 'requiring_body')}
-                className="px-5 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-800 text-sm font-bold border border-slate-300 shadow-sm transition-all"
+                className="w-full sm:w-auto px-4 sm:px-5 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-800 text-xs sm:text-sm font-bold border border-slate-300 shadow-sm transition-all text-center"
               >
                 NHAI / Railways GIS Scanner
               </button>
               <button
                 onClick={() => onOpenAuth('citizen')}
-                className="px-5 py-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-sm font-bold border border-emerald-300 shadow-sm transition-all"
+                className="w-full sm:w-auto px-4 sm:px-5 py-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs sm:text-sm font-bold border border-emerald-300 shadow-sm transition-all text-center"
               >
                 Public Landowner Portal
               </button>
@@ -246,60 +249,60 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           </div>
 
           {/* Interactive Live Showcase Frame */}
-          <div id="showcase" className="mt-14 max-w-5xl mx-auto">
+          <div id="showcase" className="mt-10 sm:mt-14 max-w-5xl mx-auto">
             <div className="bg-slate-900 rounded-2xl shadow-2xl border border-slate-800 overflow-hidden text-white">
               {/* Showcase Frame Header with 3 Interactive Action Pills */}
-              <div className="px-5 py-3 bg-slate-950/80 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
-                <div className="flex items-center gap-2">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-rose-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
+              <div className="px-3 sm:px-5 py-3 bg-slate-950/80 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="flex gap-1.5 shrink-0">
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-rose-500/80" />
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-500/80" />
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/80" />
                   </div>
-                  <span className="ml-2 text-xs font-mono text-slate-400">
-                    VASUDHA Kernel State Machine: NH-48 Dharwad Expressway Bypass
+                  <span className="ml-1 sm:ml-2 text-[11px] sm:text-xs font-mono text-slate-400 truncate">
+                    VASUDHA Kernel: NH-48 Dharwad Bypass
                   </span>
                 </div>
 
                 {/* 3 Interactive Action Pills */}
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
                   <button
                     onClick={() => setEcoClashActive(!ecoClashActive)}
-                    className={`px-2.5 py-1 rounded text-xs font-semibold font-mono border transition-all ${
+                    className={`px-2 sm:px-2.5 py-1 rounded text-[11px] sm:text-xs font-semibold font-mono border whitespace-nowrap transition-all shrink-0 ${
                       ecoClashActive 
                         ? 'bg-rose-900/80 text-rose-200 border-rose-600 shadow-sm shadow-rose-950'
                         : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700'
                     }`}
                   >
-                    {ecoClashActive ? '⚡ Eco-Clash Active' : 'Test Eco-Clash'}
+                    {ecoClashActive ? '⚡ Eco-Clash' : 'Test Eco-Clash'}
                   </button>
 
                   <button
                     onClick={() => setTimerRunning(!timerRunning)}
-                    className={`px-2.5 py-1 rounded text-xs font-semibold font-mono border transition-all ${
+                    className={`px-2 sm:px-2.5 py-1 rounded text-[11px] sm:text-xs font-semibold font-mono border whitespace-nowrap transition-all shrink-0 ${
                       timerRunning 
                         ? 'bg-amber-900/80 text-amber-200 border-amber-600' 
                         : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700'
                     }`}
                   >
-                    {timerRunning ? '⏱ 12M Timer Running' : 'Timer Paused'}
+                    {timerRunning ? '⏱ 12M Timer' : 'Timer Paused'}
                   </button>
 
                   <button
                     onClick={() => setPossessionUnlocked(!possessionUnlocked)}
-                    className={`px-2.5 py-1 rounded text-xs font-semibold font-mono border transition-all ${
+                    className={`px-2 sm:px-2.5 py-1 rounded text-[11px] sm:text-xs font-semibold font-mono border whitespace-nowrap transition-all shrink-0 ${
                       possessionUnlocked 
                         ? 'bg-emerald-900/80 text-emerald-200 border-emerald-600' 
                         : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700'
                     }`}
                   >
-                    {possessionUnlocked ? '🔓 Possession Unlocked' : 'Unlock Possession'}
+                    {possessionUnlocked ? '🔓 Unlocked' : 'Unlock Possession'}
                   </button>
                 </div>
               </div>
 
               {/* Showcase Frame Content */}
-              <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-4 sm:p-6 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                 {/* Visual Pill 1: Eco-Clash Detector */}
                 <div className={`p-4 rounded-xl border transition-all ${
                   ecoClashActive 
@@ -390,26 +393,26 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </section>
 
       {/* The Infrastructure Crisis */}
-      <section id="crisis" className="py-16 bg-white border-b border-slate-200">
+      <section id="crisis" className="py-10 sm:py-16 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
             <span className="text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-3 py-1 rounded-full border border-rose-200">
               The Indian Infrastructure Dilemma
             </span>
-            <h2 className="text-3xl font-black text-slate-900 mt-3">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-3">
               Why 64% of Highway & Railway Projects Suffer Stays
             </h2>
-            <p className="text-sm text-slate-600 mt-2">
+            <p className="text-xs sm:text-sm text-slate-600 mt-2">
               Legacy land acquisition processes rely on fragmented physical files, unverified cadastral maps, and uncoordinated state-central workflows.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all shadow-subtle">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            <div className="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all shadow-subtle">
               <div className="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold mb-4">
                 <Clock className="w-5 h-5" />
               </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">
+              <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-2">
                 The 12-Month Section 19 Lapse
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -417,11 +420,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all shadow-subtle">
+            <div className="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all shadow-subtle">
               <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold mb-4">
                 <MapPin className="w-5 h-5" />
               </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">
+              <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-2">
                 Eco-Sensitive Zone (ESZ) Injunctions
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -429,11 +432,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all shadow-subtle">
+            <div className="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all shadow-subtle">
               <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold mb-4">
                 <Lock className="w-5 h-5" />
               </div>
-              <h3 className="text-base font-bold text-slate-900 mb-2">
+              <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-2">
                 Premature Possession Lawsuits
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -445,22 +448,22 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </section>
 
       {/* Interactive RBAC Matrix */}
-      <section id="rbac" className="py-16 bg-slate-50 border-b border-slate-200">
+      <section id="rbac" className="py-10 sm:py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             <span className="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
               Role-Based Access Control Architecture
             </span>
-            <h2 className="text-3xl font-black text-slate-900 mt-3">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-3">
               Tailored Workspaces for Every Stakeholder
             </h2>
-            <p className="text-sm text-slate-600 mt-2">
+            <p className="text-xs sm:text-sm text-slate-600 mt-2">
               VASUDHA enforces zero-trust legal isolation. Each role operates within strict statutory powers with purpose-built tooling.
             </p>
           </div>
 
-          {/* Role Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+          {/* Role Tabs (Scrollable on Mobile, Wrapped on Desktop) */}
+          <div className="flex sm:flex-wrap items-center sm:justify-center gap-1.5 sm:gap-2 mb-6 sm:mb-8 overflow-x-auto pb-2 sm:pb-0 scrollbar-none px-1 -mx-1">
             {(Object.keys(rbacInfo) as UserRole[]).map((r) => {
               const meta = rbacInfo[r];
               const isSelected = r === selectedRbacRole;
@@ -469,13 +472,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 <button
                   key={r}
                   onClick={() => setSelectedRbacRole(r)}
-                  className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
+                  className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-bold transition-all shrink-0 whitespace-nowrap ${
                     isSelected
                       ? 'bg-blue-700 text-white shadow-md'
                       : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
                   }`}
                 >
-                  <Icon className="w-3.5 h-3.5" />
+                  <Icon className="w-3.5 h-3.5 shrink-0" />
                   <span>{meta.title.split('(')[0].trim()}</span>
                 </button>
               );
@@ -483,28 +486,28 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           </div>
 
           {/* Selected Role Card */}
-          <div className="max-w-4xl mx-auto bg-white rounded-2xl border border-slate-200 shadow-enterprise p-8 transition-all">
+          <div className="max-w-4xl mx-auto bg-white rounded-2xl border border-slate-200 shadow-enterprise p-5 sm:p-8 transition-all">
             {(() => {
               const cur = rbacInfo[selectedRbacRole];
               const Icon = cur.icon;
               return (
-                <div className="space-y-6">
-                  <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                <div className="space-y-5 sm:space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-4 border-b border-slate-100">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center border border-blue-200">
-                        <Icon className="w-6 h-6" />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center border border-blue-200 shrink-0">
+                        <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold text-slate-900">{cur.title}</h3>
-                        <p className="text-xs text-slate-500">{cur.subtitle}</p>
+                        <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-tight">{cur.title}</h3>
+                        <p className="text-xs text-slate-500 mt-0.5">{cur.subtitle}</p>
                       </div>
                     </div>
-                    <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-slate-100 text-slate-800 border border-slate-300">
+                    <span className="self-start sm:self-auto px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-mono font-bold bg-slate-100 text-slate-800 border border-slate-300 shrink-0">
                       {cur.statutorySection}
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     {cur.capabilities.map((cap, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-50 border border-slate-100 text-xs text-slate-700">
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -513,13 +516,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                     ))}
                   </div>
 
-                  <div className="pt-2 flex justify-end">
+                  <div className="pt-2 flex flex-col sm:flex-row justify-end">
                     <button
                       onClick={() => onOpenAuth(selectedRbacRole === 'citizen' ? 'citizen' : 'officer', selectedRbacRole)}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold shadow transition-all"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold shadow transition-all"
                     >
                       <span>Authenticate & Enter {cur.title.split('(')[0]} Workspace</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-4 h-4 shrink-0" />
                     </button>
                   </div>
                 </div>
@@ -530,92 +533,96 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </section>
 
       {/* Competitive Comparison Matrix */}
-      <section id="comparison" className="py-16 bg-white border-b border-slate-200">
+      <section id="comparison" className="py-10 sm:py-16 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
             <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
               Comparative Civic Architecture
             </span>
-            <h2 className="text-3xl font-black text-slate-900 mt-3">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-3">
               How VASUDHA Integrates the National Stack
             </h2>
-            <p className="text-sm text-slate-600 mt-2">
+            <p className="text-xs sm:text-sm text-slate-600 mt-2">
               Unlike single-function portals, VASUDHA bridges spatial planning, judicial enforcement, and direct exchequer disbursement into one unified state machine.
             </p>
           </div>
 
+          <p className="sm:hidden text-[11px] text-slate-500 text-center mb-2 font-medium">
+            ← Swipe horizontally to view full matrix →
+          </p>
+
           <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-subtle">
             <table className="min-w-full divide-y divide-slate-200 text-xs">
-              <thead className="bg-slate-100 text-slate-700 font-bold uppercase text-[11px] tracking-wider">
+              <thead className="bg-slate-100 text-slate-700 font-bold uppercase text-[10px] sm:text-[11px] tracking-wider">
                 <tr>
-                  <th className="py-3.5 px-4 text-left">Feature / Capability</th>
-                  <th className="py-3.5 px-4 text-center">DILRMP</th>
-                  <th className="py-3.5 px-4 text-center">PM Gati Shakti</th>
-                  <th className="py-3.5 px-4 text-center">PFMS</th>
-                  <th className="py-3.5 px-4 text-center">Bhoomi Rashi</th>
-                  <th className="py-3.5 px-4 text-center bg-blue-50 text-blue-900 font-black border-l border-r border-blue-200">
+                  <th className="py-3 px-3 sm:px-4 text-left whitespace-nowrap">Feature / Capability</th>
+                  <th className="py-3 px-3 sm:px-4 text-center whitespace-nowrap">DILRMP</th>
+                  <th className="py-3 px-3 sm:px-4 text-center whitespace-nowrap">PM Gati Shakti</th>
+                  <th className="py-3 px-3 sm:px-4 text-center whitespace-nowrap">PFMS</th>
+                  <th className="py-3 px-3 sm:px-4 text-center whitespace-nowrap">Bhoomi Rashi</th>
+                  <th className="py-3 px-3 sm:px-4 text-center bg-blue-50 text-blue-900 font-black border-l border-r border-blue-200 whitespace-nowrap">
                     VASUDHA Engine
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200 bg-white text-slate-700 font-medium">
                 <tr>
-                  <td className="py-3 px-4 font-semibold text-slate-900">RFCTLARR 2013 State Machine Enforcement</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-amber-500">⚠️ Manual</td>
-                  <td className="py-3 px-4 text-center bg-blue-50/50 font-bold text-emerald-600 border-l border-r border-blue-100">
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 font-semibold text-slate-900 whitespace-nowrap">RFCTLARR 2013 State Machine Enforcement</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-amber-500 whitespace-nowrap">⚠️ Manual</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center bg-blue-50/50 font-bold text-emerald-600 border-l border-r border-blue-100 whitespace-nowrap">
                     ✅ Automated 6-Stage
                   </td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4 font-semibold text-slate-900">12-Month Sec 19 Lapse Countdown Prevention</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center bg-blue-50/50 font-bold text-emerald-600 border-l border-r border-blue-100">
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 font-semibold text-slate-900 whitespace-nowrap">12-Month Sec 19 Lapse Countdown Prevention</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center bg-blue-50/50 font-bold text-emerald-600 border-l border-r border-blue-100 whitespace-nowrap">
                     ✅ Hard Statutory Lock
                   </td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4 font-semibold text-slate-900">PM Gati Shakti GIS Conflict Pre-Screening</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-emerald-600">✅ Raw GIS</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center bg-blue-50/50 font-bold text-emerald-600 border-l border-r border-blue-100">
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 font-semibold text-slate-900 whitespace-nowrap">PM Gati Shakti GIS Conflict Pre-Screening</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-emerald-600 whitespace-nowrap">✅ Raw GIS</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center bg-blue-50/50 font-bold text-emerald-600 border-l border-r border-blue-100 whitespace-nowrap">
                     ✅ Live Legal Blocking
                   </td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4 font-semibold text-slate-900">Section 38 PFMS-Locked Physical Possession</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-amber-500">⚠️ Generic DBT</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center bg-blue-50/50 font-bold text-emerald-600 border-l border-r border-blue-100">
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 font-semibold text-slate-900 whitespace-nowrap">Section 38 PFMS-Locked Physical Possession</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-amber-500 whitespace-nowrap">⚠️ Generic DBT</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center bg-blue-50/50 font-bold text-emerald-600 border-l border-r border-blue-100 whitespace-nowrap">
                     ✅ Cryptographic Gate
                   </td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4 font-semibold text-slate-900">Rehabilitation Schedule II & III Entitlements</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center bg-blue-50/50 font-bold text-emerald-600 border-l border-r border-blue-100">
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 font-semibold text-slate-900 whitespace-nowrap">Rehabilitation Schedule II & III Entitlements</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center bg-blue-50/50 font-bold text-emerald-600 border-l border-r border-blue-100 whitespace-nowrap">
                     ✅ Family Ledger & Colony Audit
                   </td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4 font-semibold text-slate-900">Bhashini Multilingual Voice Inquiry</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center text-rose-500">❌ No</td>
-                  <td className="py-3 px-4 text-center bg-blue-50/50 font-bold text-emerald-600 border-l border-r border-blue-100">
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 font-semibold text-slate-900 whitespace-nowrap">Bhashini Multilingual Voice Inquiry</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center text-rose-500 whitespace-nowrap">❌ No</td>
+                  <td className="py-2.5 sm:py-3 px-3 sm:px-4 text-center bg-blue-50/50 font-bold text-emerald-600 border-l border-r border-blue-100 whitespace-nowrap">
                     ✅ 6 Indian Languages
                   </td>
                 </tr>
@@ -626,9 +633,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
+      <footer className="bg-slate-950 text-slate-400 py-8 sm:py-12 border-t border-slate-800 text-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2.5 mb-3">
                 <img 
@@ -680,7 +687,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             </div>
           </div>
 
-          <div className="pt-8 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 text-slate-600">
+          <div className="pt-6 sm:pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-600 text-center sm:text-left">
             <p>© 2024-2026 Department of Land Resources (DoLR), Ministry of Rural Development, Government of India. Designed for National Critical Infrastructure.</p>
             <div className="flex gap-4">
               <span className="hover:text-slate-400 cursor-pointer">Security Policy</span>

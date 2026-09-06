@@ -122,18 +122,18 @@ export const CitizenDashboard: React.FC<CitizenDashboardProps> = ({
   return (
     <div className="space-y-6">
       {/* Top Banner & Multilingual Selector */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-subtle p-6">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-subtle p-4 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-emerald-700 text-white flex items-center justify-center font-bold shadow-md">
-              <User className="w-6 h-6" />
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-700 text-white flex items-center justify-center font-bold shadow-md shrink-0">
+              <User className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-xl font-black text-slate-900">
+              <div className="flex flex-wrap items-center gap-2">
+                <h1 className="text-lg sm:text-xl font-black text-slate-900 leading-tight">
                   {t.portalTitle}
                 </h1>
-                <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
                   Zero Admin Access • Public Transparency
                 </span>
               </div>
@@ -144,15 +144,15 @@ export const CitizenDashboard: React.FC<CitizenDashboardProps> = ({
           </div>
 
           {/* Bhashini Language Switcher */}
-          <div className="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
-            <Globe className="w-4 h-4 text-slate-600 ml-1" />
-            <span className="text-[11px] font-bold text-slate-500 hidden sm:inline">Language:</span>
-            <div className="flex flex-wrap gap-1">
+          <div className="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200 w-full sm:w-auto overflow-x-auto">
+            <Globe className="w-4 h-4 text-slate-600 ml-1 shrink-0" />
+            <span className="text-[11px] font-bold text-slate-500 hidden sm:inline shrink-0">Language:</span>
+            <div className="flex flex-nowrap sm:flex-wrap gap-1 shrink-0">
               {LANGUAGES.map((lang) => (
                 <button
                   key={lang.code}
                   onClick={() => setCurrentLang(lang.code)}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
                     currentLang === lang.code
                       ? 'bg-emerald-700 text-white shadow-sm'
                       : 'text-slate-700 hover:bg-slate-200'
@@ -166,37 +166,39 @@ export const CitizenDashboard: React.FC<CitizenDashboardProps> = ({
         </div>
 
         {/* Search & Voice Inquiry Bar */}
-        <form onSubmit={handleSearch} className="mt-6 flex flex-wrap items-center gap-3">
-          <div className="relative flex-1 min-w-[280px]">
+        <form onSubmit={handleSearch} className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
+          <div className="relative flex-1 min-w-0">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="e.g. KA-BLR-0982 or Survey No. 142/B"
-              className="w-full text-xs font-mono font-bold bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 pl-10 text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:bg-white"
+              className="w-full text-xs font-mono font-bold bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 sm:py-3 pl-10 text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:bg-white"
             />
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3 sm:top-3.5" />
           </div>
 
-          <button
-            type="button"
-            onClick={handleVoiceSearch}
-            className={`px-4 py-3 rounded-xl border text-xs font-bold transition-all flex items-center gap-2 ${
-              micListening 
-                ? 'bg-rose-100 text-rose-800 border-rose-400 animate-pulse'
-                : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-300'
-            }`}
-          >
-            <Mic className="w-4 h-4" />
-            <span>{micListening ? 'Listening (Bhashini)...' : t.micSearch}</span>
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleVoiceSearch}
+              className={`flex-1 sm:flex-initial px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-2 whitespace-nowrap ${
+                micListening 
+                  ? 'bg-rose-100 text-rose-800 border-rose-400 animate-pulse'
+                  : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-300'
+              }`}
+            >
+              <Mic className="w-4 h-4 shrink-0" />
+              <span>{micListening ? 'Listening (Bhashini)...' : t.micSearch}</span>
+            </button>
 
-          <button
-            type="submit"
-            className="px-6 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold shadow transition-all"
-          >
-            {t.lookupBtn}
-          </button>
+            <button
+              type="submit"
+              className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold shadow transition-all whitespace-nowrap"
+            >
+              {t.lookupBtn}
+            </button>
+          </div>
         </form>
       </div>
 
@@ -204,7 +206,7 @@ export const CitizenDashboard: React.FC<CitizenDashboardProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Column (7 cols): Transparent Statutory Compensation Breakdown */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-subtle p-6">
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-subtle p-4 sm:p-6">
             <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100">
               <div>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-bold border border-blue-200">

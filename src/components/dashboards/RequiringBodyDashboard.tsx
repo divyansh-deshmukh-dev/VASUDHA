@@ -109,15 +109,15 @@ export const RequiringBodyDashboard: React.FC<RequiringBodyDashboardProps> = ({
       <div className="bg-white rounded-2xl border border-slate-200 shadow-subtle p-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold">
-              <Building2 className="w-6 h-6" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold shrink-0">
+              <Building2 className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-xl font-black text-slate-900">
+              <div className="flex flex-wrap items-center gap-2">
+                <h1 className="text-lg sm:text-xl font-black text-slate-900 leading-tight">
                   Land Requiring Body Operational Desk
                 </h1>
-                <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
                   NHAI / MoRTH Node
                 </span>
               </div>
@@ -127,12 +127,12 @@ export const RequiringBodyDashboard: React.FC<RequiringBodyDashboardProps> = ({
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 w-full sm:w-auto">
             <button
               onClick={() => setShowSubmitModal(true)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow-md transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-bold shadow-md transition-all"
             >
-              <Plus className="w-4 h-4" />
+              <Plus className="w-4 h-4 shrink-0" />
               <span>+ Submit New Project Alignment</span>
             </button>
           </div>
@@ -220,7 +220,7 @@ export const RequiringBodyDashboard: React.FC<RequiringBodyDashboardProps> = ({
             </div>
 
             {/* Map Canvas Container */}
-            <div className="h-[420px] rounded-xl overflow-hidden border border-slate-300 relative shadow-inner">
+            <div className="h-[300px] sm:h-[420px] rounded-xl overflow-hidden border border-slate-300 relative shadow-inner">
               <MapContainer 
                 center={[15.4750, 74.9850]} 
                 zoom={12} 
